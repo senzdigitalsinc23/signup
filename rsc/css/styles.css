@@ -1,0 +1,9 @@
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    background: url("../images/beavoter.jpg") ;
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+}
