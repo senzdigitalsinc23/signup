@@ -157,9 +157,9 @@ setAttributes({ 'href': "#" }, login)
 setAttributes({ 'class': "main-text" }, mainTextContainer);
 
 setAttributes({
-    'src': "../../rsc/images/votes.ico",
+    'src': "../../rsc/images/votes.png",
     'alt': "Logo",
-    'style': "width: 80px;"
+    'style': "width: 100px;"
 }, logo)
 
 setAttributes({ 'class': "ecast-container" }, eCastContainer)
