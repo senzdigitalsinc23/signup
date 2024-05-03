@@ -13,15 +13,13 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 62.5%;    
 }
-.container {
-   display: flex;
-}
 
 body {
     background: url("../images/beavoter.jpg") ;
     background-repeat: no-repeat;
     background-size: 100% 900px;
     margin: -3px;
+    background-attachment: fixed;
 }
 
 input[type ^="text"], input[type ^="password"], input[type ^="email"]{
@@ -46,6 +44,7 @@ input[type ^="text"]:focus, input[type ^="password"]:focus, input[type ^="email"
     background-color: cornsilk;
     position: absolute;
     right: 0;
+    
 }
 
 
@@ -120,7 +119,7 @@ input[type ^="text"]:focus, input[type ^="password"]:focus, input[type ^="email"
    width: 30.5%;
    height: 80px;
    background-color: #596D48;
-   position: absolute;
+   position: fixed;
    top: 160px;
    opacity: .4;
  }
@@ -131,7 +130,7 @@ input[type ^="text"]:focus, input[type ^="password"]:focus, input[type ^="email"
    justify-content: center;
    width: 30%;
    height: 80px;
-   position: absolute;
+   position: fixed;
    top: 160px;
    gap: 10px;
  }
