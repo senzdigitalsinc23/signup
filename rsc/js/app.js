@@ -130,7 +130,6 @@ setAttributes({
     'class': "password",
     'id': "password",
     'required': true,
-    'minLength': "10",
     'minLength': "8"
 }, passwordInput);
 setAttributes({
@@ -138,7 +137,8 @@ setAttributes({
     'name': "confirm",
     'class': "confirm",
     'id': "confirm",
-    'required': true
+    'required': true,
+    'minLength': "8"
 }, confirmInput);
 
 setAttributes({ 'class': "inputs-container" }, inputsContainer);
@@ -233,6 +233,8 @@ confirmInput.addEventListener('focusout', () => {
 
     if (confirmInput.value !== passwordInput.value) {
         error.textContent = "Passwords do no match";
+    } else {
+        error.textContent = "";
     }
 });
 
