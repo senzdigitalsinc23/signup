@@ -37,6 +37,10 @@ let wrapper = createElements("div");
 let letGetOnContainer = createElements('div');
 let formContainer = createElements('div');
 let inputsContainer = createElements("div");
+let logoContainer = createElements('div');
+let logo = createElements('img');
+let eCastContainer = createElements('div');
+let error = createElements('div');
 
 let form = createElements('form');
 let mainTextContainer = createElements('div');
@@ -53,6 +57,7 @@ let haveAccountContainer = createElements('div');
 let login = createElements('a', "Log in");
 let letDoThis = createElements('p', "Let's Get On!");
 let btnCreate = createElements('input');
+let eCast = createElements('h2', "eCAST");
 
 let firstNameLabel = createElements("label");
 let lastNameLabel = createElements("label");
@@ -124,7 +129,9 @@ setAttributes({
     'name': "password",
     'class': "password",
     'id': "password",
-    'required': true
+    'required': true,
+    'minLength': "10",
+    'minLength': "8"
 }, passwordInput);
 setAttributes({
     'type': "password",
@@ -141,12 +148,24 @@ setAttributes({
     'class': "btn-create-account",
 }, btnCreate);
 
+setAttributes({'class': "logo-container"}, logoContainer);
 
 setAttributes({'class': "let-go-container"}, [letGetOnContainer])
 setAttributes({ 'class': "form-container" }, [formContainer])
 setAttributes({ 'class': "have-account" }, haveAccountContainer)
 setAttributes({ 'href': "#" }, login)
 setAttributes({ 'class': "main-text" }, mainTextContainer);
+
+setAttributes({
+    'src': "../../rsc/images/votes.ico",
+    'alt': "Logo",
+    'style': "width: 80px;"
+}, logo)
+
+setAttributes({ 'class': "ecast-container" }, eCastContainer)
+
+setAttributes({ 'class': "e-cast" }, eCast)
+setAttributes({'class': 'error'}, error)
 
 //Attach elements to containers
 attachElements(firstNameDiv, [firstNameLabel, createElements('br'), firstNameInput]);
@@ -159,10 +178,61 @@ attachElements(btnCreateDiv, [createElements('br'), btnCreate]);
 attachElements(formContainer, [letGetOnContainer, inputsContainer]);
 attachElements(letGetOnContainer, [letDoThis]);
 attachElements(inputsContainer, [firstNameDiv, lastNameDiv, emailDiv,
-            phoneDiv, passwordDiv, confirmDiv]);
+    phoneDiv, passwordDiv, confirmDiv]);
+attachElements(passwordDiv, [error])
 attachElements(haveAccountContainer, [haveAccount, login])
 attachElements(form, [formContainer, btnCreateDiv, haveAccountContainer]);
 attachElements(mainTextContainer, [paraText, shortText])
-attachElements(wrapper, [mainTextContainer,form])
-attachElements(container, [wrapper])
+attachElements(wrapper, [mainTextContainer, form])
+attachElements(eCastContainer, [logo, eCast])
+attachElements(container, [logoContainer, wrapper, eCastContainer]);
+
+
+//Adding Events to forms
+firstNameInput.addEventListener('focusout', () => {
+    if (!firstNameInput.validity.valid) {
+        setAttributes({ 'style': "border: 1px solid red" }, firstNameInput);
+    } else {
+        setAttributes({ 'style': "border: 1px solid var(--btn-success)" }, firstNameInput);
+    }
+});
+lastNameInput.addEventListener('focusout', () => {
+    if (!lastNameInput.validity.valid) {
+        setAttributes({'style': "border: 1px solid red"}, lastNameInput)
+    } else {
+        setAttributes({ 'style': "border: 1px solid var(--btn-success)" }, lastNameInput);
+    }
+});
+emailInput.addEventListener('focusout', () => {
+    if (!emailInput.validity.valid) {
+        setAttributes({'style': "border: 1px solid red"}, emailInput)
+    }else {
+        setAttributes({ 'style': "border: 1px solid var(--btn-success)" }, emailInput);
+    }
+});
+phoneInput.addEventListener('focusout', () => {
+    if (!phoneInput.validity.valid) {
+        setAttributes({'style': "border: 1px solid red"}, phoneInput)
+    } else {
+        setAttributes({ 'style': "border: 1px solid var(--btn-success)" }, phoneInput);
+    }
+});
+passwordInput.addEventListener('focusout', () => {
+    if (!passwordInput.validity.valid) {
+        setAttributes({'style': "border: 1px solid red"}, passwordInput)
+    } else {
+        setAttributes({ 'style': "border: 1px solid var(--btn-success)" }, passwordInput);
+    }
+});
+confirmInput.addEventListener('focusout', () => {
+    if (!confirmInput.validity.valid) {
+        setAttributes({'style': "border: 1px solid red"}, confirmInput)
+    } else {
+        setAttributes({ 'style': "border: 1px solid var(--btn-success)" }, confirmInput);
+    }
+
+    if (confirmInput.value !== passwordInput.value) {
+        error.textContent = "Passwords do no match";
+    }
+});
 
