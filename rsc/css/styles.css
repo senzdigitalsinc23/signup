@@ -1,9 +1,113 @@
 :root {
-    font-size: 62.5%;
+    --btn-primary: blue;
+    --btn-success: green;
+    --btn-white: white;
+    --btn-reset: brown;
+    --btn-danger: red;
+    --text-default: black;
+    --text-danger: var(var(--btn-danger));
+    --text-white: var(var(--btn-white));
+    --label-col: gray;
+    --btn-create-account: #596D48;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 62.5%;    
 }
 
 body {
     background: url("../images/beavoter.jpg") ;
     background-repeat: no-repeat;
     background-size: 100% 100vh;
+    margin: -3px;
 }
+
+input[type ^="text"], input[type ^="password"], input[type ^="email"]{
+    width: 25vw;
+    margin: 3px 0 0 0;
+    border: 1px solid #E5E7EB;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+input[type ^="text"]:focus, input[type ^="password"]:focus, input[type ^="email"]:focus {
+    border: 1px solid #0000ff;
+}
+
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100vh;
+    background-color: cornsilk;
+    position: absolute;
+    right: 0;
+}
+
+
+ .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    background-color: var(--text-white, white);
+    box-shadow: 1px 1px 10px 0 gray; /*h-offset v-offset blur spread color */
+    margin: 50px 0 25px 0;
+ }
+
+ .let-go-container {
+    display: flex;
+    justify-content: start;
+    width:50vw;
+    height: fit-content;
+    margin: 0 0 0 30px;
+    font-size: 1.4rem;
+    font-weight: 900;
+ }
+ .inputs-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 60vw;
+    height: fit-content;
+    margin: 0 0 0 30px;
+ }
+
+ label{
+    text-transform: uppercase;
+ }
+
+ .have-account {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    font-size: 1.2rem;
+    padding: 0 0 0 30px;
+    margin: 10px 0 0 0;
+ }
+
+ .have-account a {
+    color: var(--btn-create-account);
+    font-weight: 900;
+    text-decoration: none;
+ }
+
+ .btn-create-account {
+    background-color: var(--btn-create-account);
+    color: var(--btn-white);
+    font-weight: 900;
+    border: 2px solid var(--btn-create-account);
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer; 
+    margin: 0 0 0 30px;
+ }
+
+ .main-text {
+    width: 500px;
+    font-size: 1.4rem;
+    font-weight: 900;
+    padding: 90px 0 0 30px;
+ }
